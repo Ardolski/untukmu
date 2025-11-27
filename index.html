@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    animation: {
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen w-full flex items-center justify-center selection:bg-pink-300 text-gray-800 relative">
+
+    <div id="heart-container" class="fixed inset-0 pointer-events-none w-full h-full z-0"></div>
+
+    <div class="relative z-10 w-full max-w-md bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl rounded-3xl p-6 mx-4 min-h-[450px] flex flex-col justify-center items-center text-center transition-all duration-300">
+        
+        <div id="section-1" class="w-full fade-in">
+            <div class="text-6xl mb-4 animate-bounce">👋</div>
+            <h1 class="text-2xl font-bold text-pink-600 mb-3">Hai, [Nama Dia]!</h1>
+            <p class="text-gray-700 mb-6 text-sm font-medium">Ada sesuatu kecil buat kamu.<br>Tap tombol di bawah ya.</p>
+            <button onclick="nextSection(2)" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105">
+                Lanjut ❤️
+            </button>
+        </div>
+
+        <div id="section-2" class="w-full hidden relative h-[350px]">
+            <h2 class="text-xl font-bold text-pink-600 mb-2">Tangkap Hatinya! 😜</h2>
+            <p class="text-xs text-gray-600 mb-4">Klik 3 hati yang terbang di bawah!</p>
+            <div id="game-area" class="w-full h-[250px] relative bg-white/30 rounded-xl border border-white/40 overflow-hidden cursor-crosshair shadow-inner"></div>
+            <p id="game-status" class="mt-2 text-xs font-bold text-pink-500">Target: 3 Hati</p>
+        </div>
+
+        <div id="section-3" class="w-full hidden">
+            <div class="text-5xl mb-3 animate-pulse">💌</div>
+            <h2 class="text-xl font-bold text-pink-600 mb-4">Untuk Kamu</h2>
+            <div class="text-left bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-md mb-8 leading-relaxed border-l-4 border-pink-500 min-h-[150px] flex items-center">
+                <p id="typing-text" class="text-gray-700 font-medium text-sm"></p>
+            </div>
+            <button onclick="nextSection(4)" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105">
+                Buka Pertanyaan 👉
+            </button>
+        </div>
+
+        <div id="section-4" class="w-full hidden h-full flex flex-col justify-center relative overflow-hidden">
+            
+            <div id="flower-icon" class="text-7xl mb-4 animate-wiggle origin-center inline-block">🌹</div>
+            
+            <h2 class="text-2xl font-bold text-pink-600 mb-2 relative z-20">Will You Be My Girlfriend?</h2>
+            <p class="text-gray-700 mb-12 text-sm font-medium relative z-20">Jangan salah pilih tombol ya...</p>
+            
+            <div class="relative w-full h-32 flex flex-col items-center justify-center gap-4">
+                <button id="btn-yes" onclick="finish()" class="z-30 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-10 rounded-full shadow-xl ring-4 ring-white/50 whitespace-nowrap">
+                    Mau Banget! 😍
+                </button>
+                
+                <button id="btn-no" onmouseover="dodge()" onclick="dodge()" class="z-20 bg-rose-500 text-white font-bold py-2 px-8 rounded-full shadow-md text-xs transition-all duration-100 ease-out whitespace-nowrap">
+                    Enggak 😜
+                </button>
+            </div>
+        </div>
+
+        <div id="section-5" class="w-full hidden">
+            <div class="text-7xl mb-4 animate-bounce">🥳💖</div>
+            <h1 class="text-3xl font-bold text-pink-600 mb-2">Yeayyy! Jadian!</h1>
+            <p class="text-gray-700 mb-6">Makasih udah milih "Mau".<br>I Promise I'll do my best!</p>
+            <div class="bg-white/50 p-3 rounded-lg inline-block">
+                 <p class="text-xs text-gray-500">ciss kiw kiw! 📸</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

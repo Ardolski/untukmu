@@ -1,0 +1,54 @@
+/* Animasi Background Gradient Bergerak */
+body {
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    overflow: hidden; 
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animasi Hati Terbang di Background */
+.heart-bg {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp linear forwards;
+    opacity: 0;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(0.5); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+}
+
+/* Transisi Halaman (Fade In) */
+.fade-in { 
+    animation: fadeIn 0.5s ease-out forwards; 
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: scale(0.95); } 
+    to { opacity: 1; transform: scale(1); } 
+}
+
+/* Kursor mengetik kedip-kedip */
+#typing-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0; } 
+}
+
+/* Animasi Smooth untuk Tombol Yes & Bunga saat membesar */
+#btn-yes, #flower-icon {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
